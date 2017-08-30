@@ -59,6 +59,7 @@ color: white;
   height: auto;
   margin: 0 5px 0 5px;
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   overflow: hidden;
   margin-bottom: 5px;
@@ -168,11 +169,5 @@ color: white;
     z-index: 10;
     height:auto;
   }
-  .button-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-}
+
 }

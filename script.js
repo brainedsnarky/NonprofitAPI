@@ -10,9 +10,15 @@ function searchquery(){
     else{
         $(".card").remove();
     }
-
-
 }
+
+$(".search-icon").click(function(){
+    $("#mobile").css("display","block");
+})
+
+$(".arrow").click(function(){
+    $('#mobile').css("display","none");
+})
 
 
 $(document).ready(function(){
