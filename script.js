@@ -17,39 +17,40 @@ function searchquery(){
 
 $(document).ready(function(){
 
-   $.fn.Search = function(y,x){
+   $.fn.Search = function(x){
         $.ajax({
-                url: 'https://staging.letzchange.org/search?q='+ y +'~&fq=(type:'+ x +')&row=10',
+                url:  x ,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data, textStatus, xhr) {
                     data.response.docs.forEach(function(x) {
                         let idd = x.id;
-                    
-                        $.ajax({
-                            url: 'https://staging.letzchange.org/api/nonprofits/'+ idd ,
-                            type: 'GET',
-                            dataType: 'json',
-                            success: function (data, textStatus, xhr) {
-                                data.members.forEach(function(d,i) {
-                                card = document.createElement('div');
-                                card.className = 'card';
-                                card.id = "CARD"+i;
+                        console.log(idd);
+                            // if( this.idd === x.id){
+                                $.ajax({
+                                    url: 'https://staging.letzchange.org/api/nonprofits/'+ idd ,
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    success: function (data, textStatus, xhr) {
+                                        data.members.forEach(function(d,i) {
+                                        card = document.createElement('div');
+                                        card.className = 'card';
+                                        card.id = "CARD"+i;
 
-                                titlewrapper = document.createElement('div');
-                                titlewrapper.className = 'title-wrapper';
-                                titlewrapper.id = "Title"+i;
-                                titlewrapper.innerHTML = d.name;
-                                card.appendChild(titlewrapper);
+                                        titlewrapper = document.createElement('div');
+                                        titlewrapper.className = 'title-wrapper';
+                                        titlewrapper.id = "Title"+i;
+                                        titlewrapper.innerHTML = d.name;
+                                        card.appendChild(titlewrapper);
 
-                                document.getElementById("main").appendChild(card);
-
+                                        document.getElementById("main").appendChild(card);
+                                        });
+                                    },
+                                    error: function(xhr, textStatus, errorThrown){
+                                        console.log('Error in Database');
+                                    }       
                                 });
-                            },
-                            error: function(xhr, textStatus, errorThrown){
-                                console.log('Error in Database');
-                            }
-                        });
+                            // }
                     });
                 },
                 error: function (xhr, textStatus, errorThrown) {
