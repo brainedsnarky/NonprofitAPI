@@ -13,11 +13,13 @@ function searchquery(){
 }
 
 $(".search-icon").click(function(){
-    $("#mobile").css("display","block");
+    $('.mobile-top-search').css("display","inline-block");
+    $('.t-search').css("display","inline-block");
 })
 
 $(".arrow").click(function(){
-    $('#mobile').css("display","none");
+    $('.mobile-top-search').css("display","none");
+    $('.t-search').css("display","none");
 })
 
 

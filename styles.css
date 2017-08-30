@@ -27,7 +27,7 @@ color: white;
   margin: 5px 0 5px 0;
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
+  width: auto;
   background-color: #324376;
   justify-content: center;
   position: relative;
@@ -65,6 +65,9 @@ color: white;
   margin-bottom: 5px;
 }
 
+.mob{
+  display: none;
+}
 
 
 /*Search Bar*/
@@ -138,6 +141,7 @@ color: white;
   margin-top: 5px;
 }
 
+
 @media screen and ( max-width: 767px ){
   .main-container{
     padding: 0 10px 0 10px;
@@ -170,4 +174,9 @@ color: white;
     height:auto;
   }
 
+  .mob{
+    display: block;
+  }
+
 }
+
