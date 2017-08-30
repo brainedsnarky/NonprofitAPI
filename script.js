@@ -43,6 +43,19 @@ $(document).ready(function(){
                                         titlewrapper.innerHTML = d.name;
                                         card.appendChild(titlewrapper);
 
+                                        contentwrapper = document.createElement('p');
+                                        contentwrapper.className = 'content-wrapper';
+                                        contentwrapper.id = "Content"+i;
+                                        contentwrapper.innerHTML = d.email;
+                                        card.appendChild(contentwrapper);
+
+                                        cwrapper = document.createElement('p');
+                                        cwrapper.className = 'content-wrapper';
+                                        cwrapper.id = "c"+i;
+                                        cwrapper.innerHTML = d.designation;
+                                        card.appendChild(cwrapper);
+
+
                                         document.getElementById("main").appendChild(card);
                                         });
                                     },
