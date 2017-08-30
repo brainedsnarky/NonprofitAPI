@@ -2,14 +2,19 @@
 //Search (Called on keyUP)
 function searchquery(){
     var term = document.getElementById("Termm").value;
+    var t = document.getElementById("Term").value;
 
-    if( term.length > 0  ) {
-        $.fn.Search(term,"nonprofit");
-        $(".card").remove();
-    }
-    else{
-        $(".card").remove();
-    }
+        if( term.length > 0  ) {
+            $.fn.Search(term);
+            $(".card").remove();
+        }
+        else if( t.length > 0){
+            $.fn.Search(t);
+            $(".card").remove();
+        }
+        else{
+            $(".card").remove();
+        }
 }
 
 $(".search-icon").click(function(){
@@ -25,7 +30,7 @@ $(".arrow").click(function(){
 
 $(document).ready(function(){
 
-   $.fn.Search = function(x){
+    $.fn.Search = function(x){
         $.ajax({
                 url:  x ,
                 type: 'GET',
@@ -78,6 +83,6 @@ $(document).ready(function(){
                     console.log('Error in Database');
                 }
         });
-   }
+    }
 
 });
